@@ -12,8 +12,11 @@ code {
     monospace;
 }
 
-.App{
-  display: grid;
-  place-items: center;
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+  width: 100%;
+  flex-direction: column;
 }

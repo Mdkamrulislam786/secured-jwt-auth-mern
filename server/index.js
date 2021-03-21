@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 // Creates a new accessToken using the given refreshToken
-app.post("/refresh_token", (req, res, next) => {
+app.post("/refresh", (req, res, next) => {
   //grab token form body
   const refreshToken = req.body.token;
 
@@ -59,12 +59,12 @@ const auth = async (req, res, next) => {
     } else if (err.message === "jwt expired") {
       return res.json({
         success: false,
-        message: "access token expired",
+        message: "Access token expired",
       });
     } else {
       return res.status(403).json({
         err,
-        message: "user not authenticated",
+        message: "User not authenticated",
       });
     }
   });
@@ -83,7 +83,7 @@ app.post("/login", (req, res) => {
   //login the user then send back access and refresh token
   //login the user here...
   let accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "20s",
+    expiresIn: "30s",
   });
   let refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: "7d",

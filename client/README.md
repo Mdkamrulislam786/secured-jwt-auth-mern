@@ -1,4 +1,10 @@
 # Getting Started with Create React App
+# The processs
+1) click login-> post req-> res-> setting the {tokens} = res  in the headers->cookies
+2) if we want to access a protected route, we check if the accesstoken token is valid/not,
+3) if not, we make a req to function called 'refresh' that takes the refresh token,if the refreshToken is valid then it send back a new access token, and we set the access token in the headers->cookies
+4)the access token is valid, so we make a request to the protected route with the valid access token, if Access token expired, the we craete new one, and let them access the protected route
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
